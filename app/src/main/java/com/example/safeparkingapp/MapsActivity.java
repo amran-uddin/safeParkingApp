@@ -45,7 +45,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // LatLng sydney = new LatLng(-34, 151);
         LatLng Detroit = new LatLng(42.361696, -83.069545);
         mMap.addMarker(new MarkerOptions().position(Detroit).title("Marker for the Urban Center"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Detroit, 1));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Detroit, 18));
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
