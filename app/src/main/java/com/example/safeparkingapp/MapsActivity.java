@@ -1,33 +1,39 @@
 package com.example.safeparkingapp;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
-import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
+import android.view.View;
+import android.widget.Toast;
 
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback{
 
     private GoogleMap mMap;
     private LocationManager locationManager;
     private LocationListener locationListener;
+    private boolean mLocationPermissons = true;
+    private FusedLocationProviderClient mFusedLocationProviderClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,7 +108,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             == PackageManager.PERMISSION_GRANTED)
             {
                 locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
-
+                mLocationPermissons = true;
             }
         }
     }
@@ -123,8 +129,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // Add a marker in Sydney and move the camera
         // LatLng sydney = new LatLng(-34, 151);
         LatLng Detroit = new LatLng(42.361696, -83.069545);
-        mMap.addMarker(new MarkerOptions().position(Detroit).title("Marker for the Urban Center"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Detroit, 18));
+        mMap.addMarker(new MarkerOptions().position(Detroit).title("Marker for the Urban Center").snippet("TEST WHAT DOES THIS DO"));
+        //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Detroit, 18));
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
@@ -138,5 +144,45 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
         mMap.setMyLocationEnabled(true);
         mMap.getUiSettings().setMyLocationButtonEnabled(true);
+
+        mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
+        try
+        {
+            if (mLocationPermissons)
+            {
+                Task location = mFusedLocationProviderClient.getLastLocation();
+                location.addOnCompleteListener(new OnCompleteListener() {
+                    @Override
+                    public void onComplete(@NonNull Task task) {
+                        if (task.isSuccessful())
+                        {
+                            Location currentLocation = (Location) task.getResult();
+                            LatLng current = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
+                            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(current, 18));
+                            Log.d("Worked", "It went");
+                        }
+                        else
+                        {
+                            Toast.makeText(MapsActivity.this, "Unable to get current location", Toast.LENGTH_SHORT).show();
+                            Log.d("ERROR", "Task Failed");
+                        }
+                    }
+                });
+            }
+            else
+            {
+                Log.d("ERROR", "Permissions is false");
+            }
+        }
+        catch (SecurityException e)
+        {
+            Log.d("ERROR", "Task Failed");
+        }
+    }
+
+    public void send(View view) {
+        Intent menuPage = new Intent(this, menu.class);
+
+        startActivity(menuPage);
     }
 }
