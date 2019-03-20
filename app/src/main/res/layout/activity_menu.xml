@@ -10,44 +10,62 @@
         android:id="@+id/button"
         android:layout_width="225dp"
         android:layout_height="wrap_content"
+
         android:layout_marginStart="93dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="49dp"
         android:layout_marginEnd="93dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="17dp"
+        android:onClick="sendToMap"
         android:text="Map"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintBottom_toTopOf="@+id/button4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:onClick="sendToMap" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="225dp"
         android:layout_height="wrap_content"
+
         android:layout_marginStart="93dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="17dp"
         android:layout_marginEnd="93dp"
-        android:layout_marginBottom="439dp"
+        android:layout_marginBottom="371dp"
+        android:onClick="sendToSafety"
         android:text="Safety Tips"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3"
-        android:onClick="sendToSafety" />
+        app:layout_constraintTop_toBottomOf="@+id/button3" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="225dp"
         android:layout_height="wrap_content"
+
         android:layout_marginStart="93dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="17dp"
         android:layout_marginEnd="93dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="17dp"
+        android:onClick="sendToTop"
         android:text="Top Parking Destinations"
         app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
-        android:onClick="sendToTop" />
+        app:layout_constraintTop_toBottomOf="@+id/button4" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="225dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="93dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="93dp"
+        android:layout_marginBottom="17dp"
+        android:onClick="sendToCrimeMap"
+        android:text="Crime Map"
+        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
 </android.support.constraint.ConstraintLayout>

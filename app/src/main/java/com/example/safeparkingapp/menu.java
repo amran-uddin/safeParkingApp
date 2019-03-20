@@ -24,6 +24,11 @@ public class menu extends AppCompatActivity {
         goToUrl ( "https://atpins.com/pdfs/online/driver/DriverSafetyTipParkingLots.pdf");
     }
 
+    public void sendToCrimeMap(View view)
+    {
+        goToUrl ( "https://www.neighborhoodscout.com/mi/detroit/crime");
+    }
+
     private void goToUrl(String url) {
         Uri uriUrl = Uri.parse(url);
         Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
