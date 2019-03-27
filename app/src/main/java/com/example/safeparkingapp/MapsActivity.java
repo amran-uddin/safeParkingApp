@@ -128,9 +128,50 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         // Add a marker in Sydney and move the camera
         // LatLng sydney = new LatLng(-34, 151);
-        LatLng Detroit = new LatLng(42.361696, -83.069545);
-        mMap.addMarker(new MarkerOptions().position(Detroit).title("Marker for the Urban Center").snippet("TEST WHAT DOES THIS DO"));
-        //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Detroit, 18));
+        LatLng DetroitUC = new LatLng(42.361696, -83.069545);
+        mMap.addMarker(new MarkerOptions().position(DetroitUC).title("Marker for the Urban Center").snippet("TEST WHAT DOES THIS DO"));
+
+
+        //------------------Parking Locations-----------
+
+        LatLng park1 = new LatLng(42.363073,  -83.070714);
+        mMap.addMarker(new MarkerOptions().position(park1).title("park1").snippet("TEST WHAT DOES THIS DO"));
+
+        LatLng park2 = new LatLng(42.363425,  -83.073681);
+        mMap.addMarker(new MarkerOptions().position(park2).title("park2").snippet("TEST WHAT DOES THIS DO"));
+
+        LatLng park4 = new LatLng(42.362364,  -83.06524);
+        mMap.addMarker(new MarkerOptions().position(park4).title("park4").snippet("TEST WHAT DOES THIS DO"));
+
+        LatLng park5 = new LatLng(42.360359,  -83.060951);
+        mMap.addMarker(new MarkerOptions().position(park5).title("park5").snippet("TEST WHAT DOES THIS DO"));
+
+        LatLng park6 = new LatLng(42.361332,  -83.070212);
+        mMap.addMarker(new MarkerOptions().position(park6).title("park6").snippet("TEST WHAT DOES THIS DO"));
+
+        LatLng park7 = new LatLng(42.361104,  -83.070466);
+        mMap.addMarker(new MarkerOptions().position(park7).title("park7").snippet("TEST WHAT DOES THIS DO"));
+
+        LatLng park8 = new LatLng(42.361023,  -83.068413);
+        mMap.addMarker(new MarkerOptions().position(park8).title("park8").snippet("TEST WHAT DOES THIS DO"));
+
+        LatLng park9 = new LatLng(42.359946,  -83.066395);
+        mMap.addMarker(new MarkerOptions().position(park9).title("park9").snippet("TEST WHAT DOES THIS DO"));
+
+        LatLng park10 = new LatLng(42.360334,  -83.072452);
+        mMap.addMarker(new MarkerOptions().position(park10).title("park10").snippet("TEST WHAT DOES THIS DO"));
+
+        LatLng park11 = new LatLng(42.357478,  -83.065935);
+        mMap.addMarker(new MarkerOptions().position(park11).title("park11").snippet("TEST WHAT DOES THIS DO"));
+
+        LatLng park12 = new LatLng(42.357131,  -83.063729);
+        mMap.addMarker(new MarkerOptions().position(park12).title("park12").snippet("TEST WHAT DOES THIS DO"));
+
+        LatLng park13 = new LatLng(42.358007,  -83.062366);
+        mMap.addMarker(new MarkerOptions().position(park13).title("park13").snippet("TEST WHAT DOES THIS DO"));
+
+        LatLng park14 = new LatLng(42.35615,  -83.072283);
+        mMap.addMarker(new MarkerOptions().position(park14).title("park14").snippet("TEST WHAT DOES THIS DO"));
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
