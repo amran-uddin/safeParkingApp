@@ -18,7 +18,7 @@ public class menu extends AppCompatActivity {
         Log.d(TAG, "onCreate: Started");
 
         //First Image
-        /*ImageView firstImage = (ImageView) findViewById(R.id.firstImage);
+        ImageView firstImage = (ImageView) findViewById(R.id.firstImage);
         int imageResources = getResources().getIdentifier("@drawable/parking", null, this.getPackageName());
         firstImage.setImageResource(imageResources);
 
@@ -26,7 +26,7 @@ public class menu extends AppCompatActivity {
        //Second Image
         ImageView image2 = (ImageView) findViewById(R.id.imageView2);
         int imageResources2 = getResources().getIdentifier("@drawable/app", null, this.getPackageName());
-        firstImage.setImageResource(imageResources);*/
+        firstImage.setImageResource(imageResources);
 
 
 
