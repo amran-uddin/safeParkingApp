@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">safeParkingApp</string>
     <string name="title_activity_maps">Map</string>
+    <string name="crime_map">Crime Map</string>
+    <string name="top_safe_parking_locations">Top Safe Parking Locations</string>
+    <string name="safety_tips">Safety Tips</string>
 </resources>
